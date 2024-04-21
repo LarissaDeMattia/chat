@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css" />
+    <title>chat</title>
+</head>
+
+<body class="container" >
+    <header class="mensagens">
+        <h3>Atendimento on-line</h3>
+    </header>
+    <div class = "mensagens">
+
+        <div class="atendente_name">
+            Atendente:
+        </div>
+
+        <div class= 'msg-atend'>
+            Olá. Blá blabla.
+        </div>
+
+        <div class="atendente_name">
+            Atendente:
+        </div>
+        <div class= 'msg-atend'>
+            Blá blabla
+        </div>   
+
+        <div class ="user">
+            <div class="cliente_name">
+                Cliente:
+            </div>
+            <div class="msg-user">
+                Bla bla bla blaaa
+            </div>
+            
+            <div class="cliente_name">
+                Cliente: 
+            </div>
+            <div class="msg-user">
+                Bla bla bla blaaa?
+            </div>
+
+        </div>
+            
+                
+    <form id="form-chat-send" action="index.html" method="post">
+        <input type="text" id="message" name="message" placeholder="escreva sua mensagem...">
+        <button type="submit" id="envia">ENVIAR</button>
+    </form>   
+    <script>
+
+        const message = document.querySelector("input");
+        const envia = document.querySelector("button");
+
+        function enviaMessage(){
+            envia.addEventListener('click', function(event) {
+                event.preventDefault()
+                
+                const appearMsg = document.createElement("div");
+                const appearNome = document.createElement("div");
+                const appearCampo = document.createElement("div");
+
+                appearMsg.innerHTML = message.value;
+                appearNome.innerHTML = "Cliente:";
+
+                appearCampo.classList.add("user");
+                appearMsg.classList.add("msg-user")
+
+                const userID = document.querySelector(".user")
+                
+                userID.appendChild(appearCampo);
+                appearCampo.appendChild(appearNome);
+                appearCampo.appendChild(appearMsg);
+                
+                message.value = "";
+                })
+            }
+        enviaMessage();
+    </script>
+    </div>
+  
+</body>
+</html>
